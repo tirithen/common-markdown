@@ -18,7 +18,7 @@
     "build": "rm -rf pkg && wasm-pack build --target web --release --out-name common-markdown && echo \"await init();\" >> pkg/common-markdown.js",
     "test": "cargo test && npm run build && web-test-runner --coverage --node-resolve --files test.js",
     "sync-version": "cargo set-version $(node -e \"console.log(require('./package.json').version);\")",
-    "release": "npm test && standard-version && git push --follow-tags && cd pkg && npm publish"
+    "release": "npm test && standard-version --commit-all && git push --follow-tags && cd pkg && npm publish"
   },
   "standard-version": {
     "scripts": {
