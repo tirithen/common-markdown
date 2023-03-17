@@ -1,12 +1,13 @@
 {
   "name": "common-markdown",
-  "version": "0.1.0",
+  "version": "0.0.0",
+  "private": "true",
   "description": "A WebAssembly wrapper for pulldown-cmark, a (CommonMark) Markdown parser.",
   "module": "common-markdown.js",
   "scripts": {
     "build": "rm -rf pkg && wasm-pack build --target web --release --out-name common-markdown && echo \"await init();\" >> pkg/common-markdown.js",
     "test": "npm run build && web-test-runner --coverage --node-resolve --files test.js",
-    "release": "standard-version --dry-run"
+    "release": "npm test && standard-version && git push --follow-tags && cd dist && npm publish"
   },
   "keywords": [
     "markdown",
