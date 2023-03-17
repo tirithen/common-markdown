@@ -1,0 +1,26 @@
+{
+  "name": "common-markdown",
+  "version": "0.1.0",
+  "description": "A WebAssembly wrapper for pulldown-cmark, a (CommonMark) Markdown parser.",
+  "module": "common-markdown.js",
+  "scripts": {
+    "build": "rm -rf pkg && wasm-pack build --target web --release --out-name common-markdown && echo \"await init();\" >> pkg/common-markdown.js",
+    "test": "npm run build && web-test-runner --coverage --node-resolve --files test.js",
+    "release": "standard-version --dry-run"
+  },
+  "keywords": [
+    "markdown",
+    "wasm",
+    "commonmark",
+    "pulldown-cmark",
+    "html"
+  ],
+  "author": "Fredrik Söderström <tirithen@gmail.com>",
+  "repository": "https://github.com/tirithen/common-markdown",
+  "license": "MIT",
+  "devDependencies": {
+    "@esm-bundle/chai": "^4.3.4",
+    "@web/test-runner": "^0.15.1",
+    "standard-version": "^9.5.0"
+  }
+}

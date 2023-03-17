@@ -1,0 +1,25 @@
+
+[package]
+name = "common-markdown"
+version = "0.1.0"
+authors = ["Fredrik Söderström <tirithen@gmail.com>"]
+description = "A WebAssembly wrapper for pulldown-cmark, a (CommonMark) Markdown parser"
+repository = "https://github.com/tirithen/common-markdown"
+license = "MIT"
+keywords = ["markdown", "wasm", "commonmark", "pulldown-cmark", "html"]
+categories = ["parsing", "text-processing", "web-programming", "wasm"]
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[profile.release]
+lto = true
+opt-level = "s"
+
+[dependencies]
+wasm-bindgen = "0.2"
+pulldown-cmark = "0.9.2"
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3"
