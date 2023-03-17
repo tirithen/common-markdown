@@ -24,10 +24,10 @@ jobs:
           toolchain: ${{ matrix.rust }}
           override: true
           target: wasm32-unknown-unknown
+      - uses: jetli/wasm-pack-action@v0.4.0
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
           node-version: ${{ matrix.node-version }}
-      - run: cargo install wasm-pack
       - run: npm ci
       - run: npm test
