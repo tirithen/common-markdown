@@ -3,12 +3,9 @@
   "version": "0.0.1",
   "private": "true",
   "description": "A WebAssembly wrapper for pulldown-cmark, a (CommonMark) Markdown parser.",
-  "module": "common-markdown.js",
-  "scripts": {
-    "build": "rm -rf pkg && wasm-pack build --target web --release --out-name common-markdown && echo \"await init();\" >> pkg/common-markdown.js",
-    "test": "npm run build && web-test-runner --coverage --node-resolve --files test.js",
-    "release": "npm test && standard-version && git push --follow-tags && cd pkg && npm publish"
-  },
+  "author": "Fredrik Söderström <tirithen@gmail.com>",
+  "repository": "https://github.com/tirithen/common-markdown",
+  "license": "MIT",
   "keywords": [
     "markdown",
     "wasm",
@@ -16,9 +13,18 @@
     "pulldown-cmark",
     "html"
   ],
-  "author": "Fredrik Söderström <tirithen@gmail.com>",
-  "repository": "https://github.com/tirithen/common-markdown",
-  "license": "MIT",
+  "module": "common-markdown.js",
+  "scripts": {
+    "build": "rm -rf pkg && wasm-pack build --target web --release --out-name common-markdown && echo \"await init();\" >> pkg/common-markdown.js",
+    "test": "npm run build && web-test-runner --coverage --node-resolve --files test.js",
+    "sync-version": "cargo set-version $(node -e \"console.log(require('./package.json').version);\")",
+    "release": "npm test && standard-version && git push --follow-tags && cd pkg && npm publish"
+  },
+  "standard-version": {
+    "scripts": {
+      "postbump": "npm run sync-version && git add Cargo.toml Cargo.lock"
+    }
+  },
   "devDependencies": {
     "@esm-bundle/chai": "^4.3.4",
     "@web/test-runner": "^0.15.1",

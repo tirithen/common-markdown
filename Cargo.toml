@@ -1,7 +1,7 @@
 
 [package]
 name = "common-markdown"
-version = "0.1.0"
+version = "0.0.1"
 authors = ["Fredrik Söderström <tirithen@gmail.com>"]
 description = "A WebAssembly wrapper for pulldown-cmark, a (CommonMark) Markdown parser"
 repository = "https://github.com/tirithen/common-markdown"
