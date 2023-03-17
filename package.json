@@ -7,7 +7,7 @@
   "scripts": {
     "build": "rm -rf pkg && wasm-pack build --target web --release --out-name common-markdown && echo \"await init();\" >> pkg/common-markdown.js",
     "test": "npm run build && web-test-runner --coverage --node-resolve --files test.js",
-    "release": "npm test && standard-version && git push --follow-tags && cd dist && npm publish"
+    "release": "npm test && standard-version && git push --follow-tags && cd pkg && npm publish"
   },
   "keywords": [
     "markdown",
