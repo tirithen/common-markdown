@@ -1,6 +1,9 @@
 use pulldown_cmark::{html, Parser};
 use wasm_bindgen::prelude::wasm_bindgen;
 
+#[global_allocator]
+static ALLOC: wee_alloc::WeeAlloc = wee_alloc::WeeAlloc::INIT;
+
 #[wasm_bindgen]
 pub fn parse(markdown: &str) -> String {
     let mut html_result = String::new();
