@@ -6,6 +6,10 @@ It is built with [wasm-pack](https://rustwasm.github.io/wasm-pack/), to provide 
 
 ## Usage
 
+**NOTE:** When parsing HTML for use in a browser, it is neccecary to also filter the content
+from any malicious code injection. A good package to use for this is
+[DOMPurify](https://github.com/cure53/DOMPurify).
+
 ```javascript
 import * as DOMPurify from 'https://unpkg.com/dompurify@3.0.1/dist/purify.js';
 
