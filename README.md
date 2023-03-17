@@ -11,7 +11,7 @@ from any malicious code injection. A good package to use for this is
 [DOMPurify](https://github.com/cure53/DOMPurify).
 
 ```javascript
-import * as DOMPurify from 'https://unpkg.com/dompurify@3.0.1/dist/purify.js';
+import DOMPurify from 'https://unpkg.com/dompurify@3.0.1/dist/purify.es.js';
 
 // Dynamic import is needed in order for the module to complete its memory initialization before usage
 const { parse } = await import('https://unpkg.com/common-markdown@0.1.0/common-markdown.js');
@@ -42,5 +42,5 @@ In the absence of a spec, early implementers consulted the original \`Markdown.p
 
 const html = DOMPurify.sanitize(parse(markdown));
 
-console.log(html);
+document.body.innerHTML = html;
 ```
